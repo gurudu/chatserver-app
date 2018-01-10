@@ -7,6 +7,7 @@ const io = socket(http);
 
 let port = process.env.PORT || 3000;
 
+
 http.listen(port, () => {
   console.log(`server is listening for requests on port ${port}`);
 });
@@ -20,7 +21,10 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
    console.log('a user connected');
+   
+   socket.on('new user', (data) => socket.userName = data );
+
    socket.on('send chat', (data) => {
-        socket.broadcast.emit('new chat', {msg:data});
+        socket.broadcast.emit('new chat', { userName:socket.userName, msg:data });
       });
 });
