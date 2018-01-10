@@ -103,6 +103,20 @@ li{
     color: black;
 }
 
+#my-message{
+    padding-right: 110px;
+    text-align: right;
+    background-color: #FFF8DC;
+    color: black;
+    border-bottom: 2px solid white; 
+}
+.user-message{
+    text-align: left;
+    background-color: rgb(229,246,255);
+    color: black;
+    border-bottom: 2px solid white; 
+}
+
 #UserName {
     flex:1;
     border-radius: 10px;
