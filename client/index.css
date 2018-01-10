@@ -1,5 +1,6 @@
+
 body{
-	font:13px Helvetica, Arial;	
+  font:13px Helvetica, Arial; 
 }
 h2{
     font-size: 18px;
@@ -27,13 +28,13 @@ h2{
     width:50%; 
     margin: 30px auto;
 }
-
 #userLogin{
   flex:1;
   width:30%;
    margin: 30px auto 0px auto;  
   
 }
+
 
 .chat-app {
    flex:1;
@@ -43,6 +44,12 @@ h2{
    align-items: flex-start;
 }
 
+.box{
+   flex:3;
+  display: flex;
+  flex-direction: column;
+ display: none;
+}
 #chat-box{
     flex:3;
     border:1px solid rgb(235,235,235);
@@ -50,8 +57,7 @@ h2{
     border-radius: 10px;
     box-sizing: border-box;
     background: #f9f9f9;
-    overflow-wrap: break-word; 
-    display: none;  
+    overflow-wrap: break-word;   
 }
 
 #online-users {
@@ -82,7 +88,6 @@ h2{
   display: flex;
   flex-direction: column;
 }
-
 .sub-title{
      border:1px solid #ddd;
     margin:auto;
@@ -103,6 +108,7 @@ li{
     color: black;
 }
 
+
 #my-message{
     padding-right: 110px;
     text-align: right;
@@ -116,25 +122,19 @@ li{
     color: black;
     border-bottom: 2px solid white; 
 }
-
-#UserName {
-    flex:1;
-    border-radius: 10px;
-}
-#login{
-   border-radius: 10px; 
-   margin-left: 10px;
-   display: block;
-   padding: 5px 10px 5px 10px;
-}
-#user-form{
-    display: flex;
-    margin: auto;
+#feedback p{
+    color: #aaa;
+    padding: 14px 0px;
+    margin: 0 20px;
 }
 
-.error{
-  color: red;
-  font-weight: normal;
+
+#output strong{
+    color: #8B4513;
+}
+#output span {
+    font-weight: bold;
+    color: #0066cc;
 }
 
 input {
@@ -170,8 +170,36 @@ textarea{
    background-color: rgb(51,40,206);
 }
 
-#feedback p{
-    color: grey;
-    padding: 14px 0px;
-    margin: 0 20px;
+#clear {
+   background-color: #e05104;
+   border-radius:10px; 
+   width: 15%;  
+   margin-left: 82%;
+   font-size: 14px;
+   margin-bottom: 10px;
+   box-shadow: 3px 2px 0px #888888;
+    line-height: 5px;
+}
+#clear:hover {
+ background-color: red;
+}
+
+#UserName {
+    flex:1;
+    border-radius: 10px;
+}
+#login{
+   border-radius: 10px; 
+   margin-left: 10px;
+   display: block;
+   padding: 5px 10px 5px 10px;
+}
+#user-form{
+    display: flex;
+    margin: auto;
+}
+
+.error{
+  color: red;
+  font-weight: normal;
 }

@@ -23,6 +23,8 @@
 		    </form>
 	    </div>   
 		<div class="chat-app">
+			<div class="box">
+				<button id="clear" class="btn"> Clear </button>
 				<div id="chat-box">
 					<div id="output"></div>
 					<div id="feedback"></div>
@@ -31,12 +33,14 @@
 							<textarea autocomplete="off" id="message" cols="40" rows="4" placeholder="Type a message..." autofocus required></textarea>
 							<input type ="submit" id="send" value="Send" class="btn">
 						</form>
-				   </div>
-				</div>
-				<div id="online-users">
+				    </div>
+			    </div>
+			 </div>   
+		    <div id="online-users">
 					<h2 class="sub-title">Online Users</h2>
 				    <ul id="user"></ul>
-			    </div>
+	        </div>    
+	        
 		</div>	
 	</div>	
 <script src="/index.js"></script>

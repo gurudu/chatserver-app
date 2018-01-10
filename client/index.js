@@ -7,7 +7,7 @@ $(function () {
 	    userForm = $('#user-form'),
 	    userError= $('#user-error'),
 	    userName = $('#UserName'),
-	    chatBox = $('#chat-box'),
+	    chatBox = $('.box'),
 	    user = $('#user'),
 	    users = $('#online-users'),
 	    feedback = $('#feedback');
