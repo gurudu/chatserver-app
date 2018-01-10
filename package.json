@@ -19,6 +19,7 @@
   "homepage": "https://github.com/gurudu/chatserver-app#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "mongoose": "^4.13.9",
     "socket.io": "^2.0.4"
   }
 }

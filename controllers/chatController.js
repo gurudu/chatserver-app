@@ -1,0 +1,19 @@
+const mongoose = require("mongoose");
+let Chat = require("../models/chat");
+
+let chatController = {};
+
+chatController.save = (s, data)  => {
+    //create document in collection/model
+    let newMsg = new Chat({ userName: s.userName, msg:data});
+    //save created document in db
+    newMsg.save((err) => {
+        if(err){
+          return res.status(500).send('There is an error in saving the task.');
+        }
+        console.log(data); 
+        s.broadcast.emit('new chat',{userName:s.userName, msg:data});
+    });
+} 
+
+module.exports  = chatController;

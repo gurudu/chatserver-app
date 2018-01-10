@@ -5,6 +5,18 @@ const socket = require('socket.io');
 //Socket setup and pass server
 const io = socket(http);
 
+let chat = require("./controllers/chatController.js");
+
+//db configuration
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+
+//mongodb hosted locally
+mongoose.connect('mongodb://localhost:27017/chatThree', { useMongoClient:true })
+   .then(() => console.log('MongoDB connection successful'))
+   .catch((err)=> console.error(err));
+
+
 let port = process.env.PORT || 3000;
 let onlineUsers = [];
 
@@ -34,7 +46,7 @@ io.on('connection', (socket) => {
     });
 
    socket.on('send chat', (data) => {
-        socket.broadcast.emit('new chat',{userName:socket.userName, msg:data});
+   	    chat.save(socket,data);
       });
 
     socket.on('disconnect', () => {

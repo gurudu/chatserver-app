@@ -16,7 +16,7 @@ $(function () {
 		let pattern = /[^a-z|^A-Z|^\s]/;
 		if(userName.val().match(pattern)){
 		   userError.empty();
-		   userError.html(`<p style="color:red">Please enter alphabets and space only!</p>`);
+		   userError.html(`<p class="error">Please enter alphabets and space only!</p>`);
 		   userName.focus();
 		  return false;
 		}	
@@ -34,7 +34,7 @@ $(function () {
 	                    users.show();
 	               	 }else{
 	               	 	userError.empty();
-	               	 	userError.html('<p style="color:red">This user name is already taken! Try again</p>');
+	               	 	userError.html('<p class="error">This user name is already taken! Try again</p>');
 	               	 }
 		    });
 	    }
