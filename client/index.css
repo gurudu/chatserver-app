@@ -169,3 +169,9 @@ textarea{
 #send:hover, #login:hover{
    background-color: rgb(51,40,206);
 }
+
+#feedback p{
+    color: grey;
+    padding: 14px 0px;
+    margin: 0 20px;
+}

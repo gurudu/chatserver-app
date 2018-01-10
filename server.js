@@ -47,4 +47,8 @@ io.on('connection', (socket) => {
    function updateOnlineUsers(){
    	 io.emit('online users', onlineUsers);
    }
+
+    socket.on('typing', (data) => {
+   	 socket.broadcast.emit('typing', data);
+   });
 });

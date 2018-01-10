@@ -2,14 +2,15 @@
 $(function () {
     let socket = io.connect();
     let messageForm = $('#message-form'),
-	      message = $('#message'),
-	      output = $('#output'),
-	      userForm = $('#user-form'),
-	     userError= $('#user-error'),
-	      userName = $('#UserName'),
-	      chatBox = $('#chat-box'),
-	      user = $('#user'),
-	      users = $('#online-users');
+	    message = $('#message'),
+	    output = $('#output'),
+	    userForm = $('#user-form'),
+	    userError= $('#user-error'),
+	    userName = $('#UserName'),
+	    chatBox = $('#chat-box'),
+	    user = $('#user'),
+	    users = $('#online-users'),
+	    feedback = $('#feedback');
 
 	let validate = function(){	
 		let pattern = /[^a-z|^A-Z|^\s]/;
@@ -49,6 +50,7 @@ $(function () {
 	//Listen for events
 	socket.on('new chat', (data) => {
 		console.log(data);
+		feedback.empty();
 	    output.append('<p class="user-message"><span>' + data.userName + ': </span>' + data.msg + '</p>');
 	});
    
@@ -62,6 +64,15 @@ $(function () {
 		      		user.append(`<li style="color:#0066cc">${usersOnline[i]}</li>`);
 		      	}  
 		      }
+	});
+
+	//message typing
+	message.on('keypress', () => {
+	  socket.emit('typing', userName.val());
+	});
+
+	socket.on('typing', (user) => {
+		  feedback.html('<p><em>' + user + ' is typing a message...</em></p>');        
 	});
 
 });
