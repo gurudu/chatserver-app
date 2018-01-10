@@ -47,11 +47,17 @@ $(function () {
 			message.val('');
 	});
 
+   let displayMessage = (data) => {
+		console.log(data.msg);
+		console.log(data.userName);
+        return output.append('<p class="user-message"><span>' + data.userName + ': </span>' + data.msg + '</p>');
+	}
+    
 	//Listen for events
 	socket.on('new chat', (data) => {
 		console.log(data);
 		feedback.empty();
-	    output.append('<p class="user-message"><span>' + data.userName + ': </span>' + data.msg + '</p>');
+	    displayMessage(data);
 	});
    
     //list of online users
@@ -74,5 +80,12 @@ $(function () {
 	socket.on('typing', (user) => {
 		  feedback.html('<p><em>' + user + ' is typing a message...</em></p>');        
 	});
+
+	socket.on('load old msgs', (docs)=>{
+		for(let i= docs.length-1; i >= 0; i-- ){
+          displayMessage(docs[i]);
+		}
+	});
+
 
 });
