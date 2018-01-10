@@ -33,6 +33,8 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
    console.log('a user connected');
+
+   chat.list(socket);
    
    socket.on('new user', (data, callback) => {
   	if(onlineUsers.indexOf(data) !== -1){

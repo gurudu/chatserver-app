@@ -16,4 +16,15 @@ chatController.save = (s, data)  => {
     });
 } 
 
+chatController.list = (s) => {
+    //to get all documents from Chat collections
+    Chat.find({}, (err, docs) => {
+     if(err){
+       return res.status(500).send("There is a problem in sending the chats.");  
+     }
+     console.log(docs);
+     s.emit('load old msgs', docs);
+   });
+}
+
 module.exports  = chatController;
