@@ -1,12 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Chatserver-app</title>
+	<title>Chat Application</title>
+	<link rel="stylesheet" href="index.css">
 	<script src="socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-	<h1>Hallo World...!</h1>
-	<script src="/chat.js"></script>
+
+	<div class="app">
+		<div class="app-title">
+		<h2 class="title">Chatserver Application</h2>
+		</div>	    
+		<div class="chat-app">
+				<div id="chat-box">
+					<div id="output"></div>
+					<div id="msgForm">
+						<form  id="message-form">
+							<textarea autocomplete="off" id="message" cols="40" rows="4" placeholder="Type a message..." autofocus required></textarea>
+							<input type ="submit" id="send" value="Send" class="btn">
+						</form>
+				   </div>
+				</div>
+			  </div>	
+		</div>
+	</div>	
+<script src="/chat.js"></script>
 </body>
 </html>
