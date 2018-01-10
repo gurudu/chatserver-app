@@ -16,13 +16,14 @@ chatController.save = (s, data)  => {
     });
 } 
 
+
 chatController.list = (s) => {
-    //to get all documents from Chat collections
-    Chat.find({}, (err, docs) => {
+  // to get recent 5 chats saved in db
+   let query = Chat.find({});
+     query.limit(5).sort('-created').exec(function(err, docs){
      if(err){
        return res.status(500).send("There is a problem in sending the chats.");  
      }
-     console.log(docs);
      s.emit('load old msgs', docs);
    });
 }
