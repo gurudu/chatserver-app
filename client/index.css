@@ -54,6 +54,15 @@ h2{
     display: none;  
 }
 
+#online-users {
+  flex:1;
+  order: 2;
+  margin: 60px 0px 0px 10px;
+  text-align: center;
+  border:1px solid grey;
+  border-radius: 10px;
+  display: none;
+}
 
 #output{
     flex:3;
@@ -72,6 +81,16 @@ h2{
 #message-form {
   display: flex;
   flex-direction: column;
+}
+
+.sub-title{
+     border:1px solid #ddd;
+    margin:auto;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+    text-align: center;
+    height: 30px;
+    background-color: rgb(17,209,69);
+    border-radius: 10px 10px 0px 0px;
 }
 
 li{

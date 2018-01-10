@@ -7,7 +7,9 @@ $(function () {
 	      userForm = $('#user-form'),
 	     userError= $('#user-error'),
 	      userName = $('#UserName'),
-	      chatBox = $('#chat-box');
+	      chatBox = $('#chat-box'),
+	      user = $('#user'),
+	      users = $('#online-users');
 
 	let validate = function(){	
 		let pattern = /[^a-z|^A-Z|^\s]/;
@@ -28,7 +30,7 @@ $(function () {
 	               	 if(data){
 	               	 	$('#userLogin').hide();
 	                    chatBox.show();
-	                    
+	                    users.show();
 	               	 }else{
 	               	 	userError.empty();
 	               	 	userError.html('<p style="color:red">This user name is already taken! Try again</p>');
@@ -49,4 +51,17 @@ $(function () {
 		console.log(data);
 	    output.append('<p class="user-message"><span>' + data.userName + ': </span>' + data.msg + '</p>');
 	});
+   
+    //list of online users
+	socket.on('online users', (usersOnline) => {
+		      user.empty();
+		      for(let i=0; i<usersOnline.length; i++) {
+		      	if(usersOnline[i] === userName.val()){
+		      		user.append(`<li style="color:orange">${usersOnline[i]}</li>`);
+		      	} else{
+		      		user.append(`<li style="color:#0066cc">${usersOnline[i]}</li>`);
+		      	}  
+		      }
+	});
+
 });
