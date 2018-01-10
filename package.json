@@ -1,0 +1,24 @@
+{
+  "name": "chatserver-app",
+  "version": "1.0.0",
+  "description": "real-time chat app",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gurudu/chatserver-app.git"
+  },
+  "author": "Hari Kumar Gurudu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gurudu/chatserver-app/issues"
+  },
+  "homepage": "https://github.com/gurudu/chatserver-app#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  }
+}
