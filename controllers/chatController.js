@@ -28,4 +28,13 @@ chatController.list = (s) => {
    });
 }
 
+chatController.clear = (s) => {
+//remove all chats from db
+    Chat.remove({}, (err) => {
+     if (err) return res.status(500).send('Threre is an error in deleting chats');
+      s.emit('cleared');
+      console.log('clear all');
+    });
+}    
+
 module.exports  = chatController;

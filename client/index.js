@@ -10,7 +10,8 @@ $(function () {
 	    chatBox = $('.box'),
 	    user = $('#user'),
 	    users = $('#online-users'),
-	    feedback = $('#feedback');
+	    feedback = $('#feedback'),
+	    clearBtn = $('#clear');
 
 	let validate = function(){	
 		let pattern = /[^a-z|^A-Z|^\s]/;
@@ -85,6 +86,14 @@ $(function () {
 		for(let i= docs.length-1; i >= 0; i-- ){
           displayMessage(docs[i]);
 		}
+	});
+	
+    clearBtn.on("click", () => {
+		socket.emit('clear');
+	});
+
+	socket.on('cleared', () => {
+		output.empty();
 	});
 
 
