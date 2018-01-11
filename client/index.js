@@ -15,7 +15,7 @@ $(function () {
 	    users = $('#online-users'),
 	    feedback = $('#feedback'),
 	    clearBtn = $('#clear');
-let newUser = "";
+
     // userform validation to check for only alphabets and spaces.
 	let validate = function(){	
 		let pattern = /[^a-z|^A-Z|^\s]/;
@@ -31,7 +31,6 @@ let newUser = "";
 	userForm.on("submit", (e) => {
 		e.preventDefault();
 		if(validate()){
-			newUser = userName.val();
 	    	socket.emit('new user', userName.val(), function(data){
 	    		    //if callback argument "data" from server.js is true then the user name valid (unique user name)
 	               	 if(data){
