@@ -1,21 +1,23 @@
 const mongoose = require("mongoose");
+
+//import Collection/Model from Models folder
 let Chat = require("../models/chat");
 
+//to create an object(controller) with methods to manipulate the data in db.
 let chatController = {};
 
 chatController.save = (s, data)  => {
     //create document in collection/model
     let newMsg = new Chat({ userName: s.userName, msg:data});
+
     //save created document in db
     newMsg.save((err) => {
         if(err){
           return res.status(500).send('There is an error in saving the task.');
         }
-        console.log(data); 
         s.broadcast.emit('new chat',{userName:s.userName, msg:data});
     });
 } 
-
 
 chatController.list = (s) => {
   // to get recent 5 chats saved in db
@@ -33,8 +35,8 @@ chatController.clear = (s) => {
     Chat.remove({}, (err) => {
      if (err) return res.status(500).send('Threre is an error in deleting chats');
       s.emit('cleared');
-      console.log('clear all');
     });
 }    
 
+//export chatController object to be available in other files
 module.exports  = chatController;

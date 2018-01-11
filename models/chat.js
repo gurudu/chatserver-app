@@ -8,7 +8,7 @@ let ChatSchema = mongoose.Schema({
    created: { type: Date, default: Date}
 });
 
-
+// to export model
 module.exports = mongoose.model('Message',ChatSchema);
 
 
