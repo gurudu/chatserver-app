@@ -54,7 +54,7 @@ Follow below instructions to run this app in your local computer
 * install docker and run docker in background
 * docker-compose up --build // to buid image and run the whole app as a container
 
-### Features of this app
+## Features of this app
 * presents good UI design
 * Responsive design (using media queries and breakpoints)
 * listening and emiting events allows two way communication between the client(s) and the server.
@@ -65,7 +65,7 @@ Follow below instructions to run this app in your local computer
 * Show who’s online
 * messages are stored in Database, ther by provides data persistence
 * Dockerized application i.e can be run as a docker container and can be deployed to Cloud platforms, PaaS (ex: using Amazon ec2       container service):
-### edge cases considered
+## Edge cases considered
 * user name and message should not be empty.
 * username must be unique
 * username must alphabets and spaces. i.e (not to contain numbers and special characters)
@@ -73,7 +73,7 @@ Follow below instructions to run this app in your local computer
 * This app is tested manually to ensure all the features are correct, fulfilled and safe.
 * This app is scalable to add more features as mentioned in future work.
 
-### Future work
+## Future work
 * Add private messaging
 * "Message sent" feedback message to the user
 * allow chat rooms
