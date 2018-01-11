@@ -15,7 +15,7 @@ $(function () {
 	    users = $('#online-users'),
 	    feedback = $('#feedback'),
 	    clearBtn = $('#clear');
-
+let newUser = "";
     // userform validation to check for only alphabets and spaces.
 	let validate = function(){	
 		let pattern = /[^a-z|^A-Z|^\s]/;
@@ -31,13 +31,13 @@ $(function () {
 	userForm.on("submit", (e) => {
 		e.preventDefault();
 		if(validate()){
-			console.log(userName.val());
+			newUser = userName.val();
 	    	socket.emit('new user', userName.val(), function(data){
 	    		    //if callback argument "data" from server.js is true then the user name valid (unique user name)
 	               	 if(data){
 	               	 	$('#userLogin').hide();
 	                    chatBox.show();
-	                    users.show();
+	                    users.show(); 
 	               	 }else{
 	               	 	// error message is shown if data is false
 	               	 	userError.empty();
@@ -46,16 +46,18 @@ $(function () {
 		    });
 	    }
 	});      
-
+    
+     
     //Emit message on message form submission
     messageForm.on('submit', (e) => {
 		    e.preventDefault();
 	    	socket.emit('send chat', message.val());
-			output.append('<p id="my-message"><strong>' + userName.val() + ': </strong>' + message.val()+ '</p>');
+			output.append(`<p id="my-message"> <strong> ${userName.val()}: </strong> ${message.val()} </p>`);
 			message.val('');
 	});
 
-   let displayMessage = (data) => output.append('<p class="user-message"><span>' + data.userName + ': </span>' + data.msg + '</p>');
+    let displayMessage = (data) => output.append(`<p class="user-message"><span> ${data.userName} : </span> ${data.msg} </p>`);
+  
 
 	//Listen for new message from sever
 	socket.on('new chat', (data) => {
@@ -72,7 +74,7 @@ $(function () {
 		      	} else{
 		      		user.append(`<li style="color:#0066cc">${usersOnline[i]}</li>`);
 		      	}  
-		      }
+		      }   
 	});
 
 	//event for who is typing a message
@@ -82,7 +84,7 @@ $(function () {
     
     //listens for who is typing message and displays a feedback message
 	socket.on('typing', (user) => {
-		  feedback.html('<p><em>' + user + ' is typing a message...</em></p>');        
+		  feedback.html(`<p><em> ${user} is typing a message...</em></p>`);        
 	});
     
     //to get recent(latest) 5 chats from db
