@@ -63,7 +63,8 @@ Follow below instructions to run this app in your local computer
 * Don’t send the same message to the user that sent it himself. Instead, append the message directly as soon as he presses enter.
 * “{user} is typing” functionality
 * Show who’s online
-* messages are stored in Database, ther by provides data persistence
+* Added clear button to clear all the messages in chat box as well as in database.
+* messages are stored in Database, there by provides data persistence. The recent 7 messages are shown in chat box.
 * Dockerized application i.e can be run as a docker container and can be deployed to Cloud platforms, PaaS (ex: using Amazon ec2       container service):
 ## Edge cases considered
 * user name and message should not be empty.
