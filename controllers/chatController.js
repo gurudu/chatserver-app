@@ -22,7 +22,7 @@ chatController.save = (s, data)  => {
 chatController.list = (s) => {
   // to get recent 5 chats saved in db
    let query = Chat.find({});
-     query.limit(5).sort('-created').exec(function(err, docs){
+     query.limit(7).sort('-created').exec(function(err, docs){
      if(err){
        return res.status(500).send("There is a problem in sending the chats.");  
      }

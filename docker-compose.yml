@@ -3,6 +3,7 @@ version: '2'
 #Define the services/containers to be run
 services:
     web:   #name of the service -> node.js and express web application
+      restart: always
       build: .   #specify directory of the Dockerfile
       ports:
        - "3000:3000" #maps the local host port 3000 to container port 3000
