@@ -12,11 +12,14 @@ let chat = require("./controllers/chatController.js");
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-//mongodb hosted locally
-mongoose.connect('mongodb://localhost:27017/chatThree', { useMongoClient:true })
+//start mongo db on your machine (net start MongoDB in cmd prompt)
+// connect local host mongo db to port 27017 (mongod --port 27017 in cmd prompt)
+//connect docker daemon to mongodb hosted locally 
+//using mongoose.connect('mongodb://database:27017/chat') but not mongoose.connect('mongodb://localhost:27017/chat')
+//for more information see https://ciphertrick.com/2017/10/23/dockerize-nodejs-service-with-mongodb-docker-compose/
+mongoose.connect('mongodb://database:27017/chat', { useMongoClient:true })
    .then(() => console.log('MongoDB connection successful'))
    .catch((err)=> console.error(err));
-
 
 let port = process.env.PORT || 3000;
 
