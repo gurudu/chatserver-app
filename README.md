@@ -54,7 +54,7 @@ Follow below instructions to run this app in your local computer
 * install docker and run docker in background
 * docker-compose up --build // to buid image and run the whole app as a container
 
-### features of this app
+### Features of this app
 * presents good UI design
 * Responsive design (using media queries and breakpoints)
 * listening and emiting events allows two way communication between the client(s) and the server.
