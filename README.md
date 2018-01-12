@@ -58,18 +58,18 @@ Follow below instructions to run this app in your local computer
 * presents good UI design
 * Responsive design (using media queries and breakpoints)
 * Listening and emiting events allows two way communication between the client(s) and the server.
-* Has support for user name 
-* User name validation on client-side and server-side
+* Support for user name 
+* Client-side and server-side validation
 * Don’t send the same message to the user that sent it himself. Instead, append the message directly as soon as he presses enter.
 * “{user} is typing” functionality
 * Show who’s online
 * Messages are stored in Database, there by provides data persistence. The recent 7 messages are shown in chat box.
 * Added clear button to clear all the messages in chat box as well as in database.
-* Dockerized application i.e can be run as a docker container and can be deployed to Cloud platforms, PaaS (ex: using Amazon ec2       container service):
+* Dockerized application i.e can be run as a docker container and can be deployed to Cloud platforms, PaaS (ex: using Amazon ec2          container service):
 ## Edge cases considered
 * user name and message should not be empty.
 * username must be unique
-* username must alphabets and spaces. i.e (not to contain numbers and special characters)
+* username must contain alphabets with/without spaces. i.e (not to contain numbers and special characters)
 * Added code for Client side and server side validation (ex: form fields and data manipulation operations in database).
 * This app is tested manually to ensure all the features are correct, fulfilled and safe.
 * This app is scalable to add more features as mentioned in future work.
