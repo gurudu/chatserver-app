@@ -59,7 +59,7 @@ Follow below instructions to run this app in your local computer
 * Responsive design (using media queries and breakpoints)
 * Listening and emiting events allows two way communication between the client(s) and the server.
 * Has support for user name 
-* User name validation on client-side
+* User name validation on client-side and server-side
 * Don’t send the same message to the user that sent it himself. Instead, append the message directly as soon as he presses enter.
 * “{user} is typing” functionality
 * Show who’s online
