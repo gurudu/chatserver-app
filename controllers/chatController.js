@@ -13,7 +13,7 @@ chatController.save = (s, data)  => {
     //save created document in db
     newMsg.save((err) => {
         if(err){
-          return res.status(500).send('There is an error in saving the task.');
+          return console.log('There is an error in saving the task.');
         }
         // to send the chat info to the clients other than the one who sent the message
         s.broadcast.emit('new chat',{userName:s.userName, msg:data});
@@ -25,7 +25,7 @@ chatController.list = (s) => {
    let query = Chat.find({});
      query.limit(7).sort('-created').exec(function(err, docs){
      if(err){
-       return res.status(500).send("There is a problem in sending the chats.");  
+       return console.log("There is a problem in sending the chats.");  
      }
      // to send stored msgs from db to client    
      s.emit('load old msgs', docs);
@@ -35,7 +35,7 @@ chatController.list = (s) => {
 chatController.clear = (s) => {
 //remove all chats from db
     Chat.remove({}, (err) => {
-     if (err) return res.status(500).send('Threre is an error in deleting chats');
+     if (err)  return console.log('Threre is an error in deleting chats');
       s.emit('cleared');
     });
 }    
