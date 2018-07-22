@@ -20,7 +20,7 @@ mongoose.Promise = global.Promise;
 //using mongoose.connect('mongodb://database:27017/chat') but not mongoose.connect('mongodb://localhost:27017/chat')
 //for more information see https://stackoverflow.com/questions/41861908/cant-connect-to-docker-mongodb
 //and https://ciphertrick.com/2017/10/23/dockerize-nodejs-service-with-mongodb-docker-compose/
-mongoose.connect('mongodb://database:27017/chat', { useMongoClient:true })
+mongoose.connect('mongodb://localhost:27017/chat', { useMongoClient:true })
    .then(() => console.log('MongoDB connection successful'))
    .catch((err)=> console.error(err));
 
